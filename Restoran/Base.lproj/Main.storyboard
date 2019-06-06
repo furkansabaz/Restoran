@@ -110,13 +110,13 @@
         <!--Restoranlar-->
         <scene sceneID="qme-yh-LVg">
             <objects>
-                <tableViewController id="uMB-RI-aYK" sceneMemberID="viewController">
+                <tableViewController id="uMB-RI-aYK" customClass="RestoranlarTableViewController" customModule="Restoran" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="h6z-5r-RpQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestoranCell" rowHeight="202" id="Pc9-EB-EcJ">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestoranCell" rowHeight="202" id="Pc9-EB-EcJ" customClass="RestoranlarTableViewCell" customModule="Restoran" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="202"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pc9-EB-EcJ" id="Qzk-cZ-BkO">
@@ -182,6 +182,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="imgIsaret" destination="XT0-6O-iRt" id="kSk-b8-GlP"/>
+                                    <outlet property="imgRestoran" destination="SAl-Bh-IIf" id="4R8-fi-HQg"/>
+                                    <outlet property="lblKonum" destination="i5Z-OR-6ev" id="Urx-l3-kwf"/>
+                                    <outlet property="lblRestoranAdi" destination="mOF-Hj-b6P" id="UcS-5R-EYS"/>
                                     <segue destination="AUM-jL-Cl7" kind="show" id="mrM-4M-BOO"/>
                                 </connections>
                             </tableViewCell>
@@ -200,8 +204,8 @@
         <!--Ayrıntılar-->
         <scene sceneID="VAg-7A-etl">
             <objects>
-                <viewController id="AUM-jL-Cl7" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Xoy-S6-0RY">
+                <viewController id="AUM-jL-Cl7" customClass="YemekDetaylariViewController" customModule="Restoran" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xoy-S6-0RY" customClass="YemekDetaylariView" customModule="Restoran" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1025"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -345,6 +349,9 @@
                                 <rect key="frame" x="187.5" y="301" width="39" height="37"/>
                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="handleControl:" destination="Xoy-S6-0RY" eventType="valueChanged" id="2Mc-kO-Re8"/>
+                                </connections>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -357,6 +364,15 @@
                             <constraint firstItem="528-M1-Fee" firstAttribute="centerX" secondItem="2Dd-DF-FXN" secondAttribute="centerX" id="tM8-1z-7Df"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="M8X-Sk-Act"/>
+                        <connections>
+                            <outlet property="collectionView" destination="2Dd-DF-FXN" id="2Rn-tH-tgb"/>
+                            <outlet property="lblFiyat" destination="mGs-je-bpP" id="OMI-KM-S1k"/>
+                            <outlet property="lblKonum" destination="au8-Fn-rhX" id="Sdl-F1-HdH"/>
+                            <outlet property="lblPuan" destination="tPa-EJ-PNN" id="aA2-89-hNw"/>
+                            <outlet property="lblSaat" destination="ewY-2K-epI" id="xO4-xl-3yA"/>
+                            <outlet property="mapView" destination="l5x-gv-q7h" id="eI6-aR-DXi"/>
+                            <outlet property="pageControl" destination="528-M1-Fee" id="6gQ-rF-GZR"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Ayrıntılar" largeTitleDisplayMode="never" id="pOH-on-92F"/>
                     <size key="freeformSize" width="414" height="1025"/>
