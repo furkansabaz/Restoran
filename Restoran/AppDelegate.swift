@@ -11,11 +11,27 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
-
+    //var window: UIWindow?
+    
+    let window = UIWindow()
+    let konumServis = KonumServis()
+    let storyBoard = UIStoryboard(name: "main", bundle: nil)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        switch konumServis.durum {
+            
+        case .denied, .notDetermined, .restricted  :
+            let konumVC = storyBoard.instantiateViewController(withIdentifier: "KonumViewController") as? KonumViewController
+            window.rootViewController = konumVC
+            default :
+            assertionFailure()
+            }
+        window.makeKeyAndVisible()
+            
+        }
+        
         return true
     }
 

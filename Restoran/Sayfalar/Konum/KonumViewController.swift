@@ -10,6 +10,9 @@ import UIKit
 
 class KonumViewController: UIViewController {
 
+    
+    @IBOutlet weak var konumView : KonumView!
+    var konumServis : KonumServis?
     override func viewDidLoad() {
         super.viewDidLoad()
 

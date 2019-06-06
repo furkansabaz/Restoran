@@ -35,6 +35,13 @@ final class KonumServis : NSObject {
         return CLLocationManager.authorizationStatus()
     }
     
+    func izinIste() {
+        manager.requestWhenInUseAuthorization()
+    }
+    func konumAl() {
+        manager.requestLocation()
+    }
+    
 }
 
 
