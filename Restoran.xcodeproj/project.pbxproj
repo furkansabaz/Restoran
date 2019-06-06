@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D459A3322A9391600B626C1 /* KonumServis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D459A3222A9391600B626C1 /* KonumServis.swift */; };
 		3D47178522A8452E0079C34F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D47178422A8452E0079C34F /* AppDelegate.swift */; };
 		3D47178722A8452E0079C34F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D47178622A8452E0079C34F /* ViewController.swift */; };
 		3D47178A22A8452E0079C34F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D47178822A8452E0079C34F /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D459A3222A9391600B626C1 /* KonumServis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KonumServis.swift; sourceTree = "<group>"; };
 		3D47178122A8452E0079C34F /* Restoran.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Restoran.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D47178422A8452E0079C34F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3D47178622A8452E0079C34F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D459A3122A9390800B626C1 /* Servisler */ = {
+			isa = PBXGroup;
+			children = (
+				3D459A3222A9391600B626C1 /* KonumServis.swift */,
+			);
+			path = Servisler;
+			sourceTree = "<group>";
+		};
 		3D47177822A8452E0079C34F = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +78,7 @@
 		3D47178322A8452E0079C34F /* Restoran */ = {
 			isa = PBXGroup;
 			children = (
+				3D459A3122A9390800B626C1 /* Servisler */,
 				3DDBEC6C22A90CEC00C6AB9B /* Sayfalar */,
 				3D47178422A8452E0079C34F /* AppDelegate.swift */,
 				3D47178622A8452E0079C34F /* ViewController.swift */,
@@ -216,6 +227,7 @@
 				3DDBEC7422A90E3C00C6AB9B /* YemekDetaylariViewController.swift in Sources */,
 				3D47178722A8452E0079C34F /* ViewController.swift in Sources */,
 				3DDBEC8422A9181100C6AB9B /* RestoranlarTableViewController.swift in Sources */,
+				3D459A3322A9391600B626C1 /* KonumServis.swift in Sources */,
 				3DDBEC7022A90D0F00C6AB9B /* TemelView.swift in Sources */,
 				3DDBEC8622A9183900C6AB9B /* RestoranlarTableViewCell.swift in Sources */,
 				3DDBEC8C22A918F200C6AB9B /* KonumViewController.swift in Sources */,
