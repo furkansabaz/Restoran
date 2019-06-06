@@ -16,7 +16,32 @@ class KonumViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        konumView.izinVerdi = {
+            print("Kullanıcı İzin Verdi")
+            self.konumServis?.izinIste()
+        }
+        
+        
+        konumServis?.konumDegisikligi = { basarili in
+            if basarili  {
+                self.konumServis?.konumAl()
+            }
+            
+        }
+        
+        konumServis?.yeniKonum = { sonuc in
+            switch sonuc {
+            case .basarili(let konumBilgisi) :
+                print(konumBilgisi.coordinate.latitude,"-",konumBilgisi.coordinate.longitude)
+            case .hatali(let hata) :
+                assertionFailure("Hata Meydana Geldi : \(hata)")
+            }
+            
+        }
+        
+        
+        
+        
     }
     
 

@@ -102,6 +102,9 @@
                             <outlet property="btnReddet" destination="Fe0-XG-Yu0" id="soU-di-LUR"/>
                         </connections>
                     </view>
+                    <connections>
+                        <outlet property="konumView" destination="8bC-Xf-vdC" id="z34-gw-LN1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

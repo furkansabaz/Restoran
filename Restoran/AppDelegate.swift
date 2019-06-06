@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let window = UIWindow()
     let konumServis = KonumServis()
-    let storyBoard = UIStoryboard(name: "main", bundle: nil)
+    let storyBoard = UIStoryboard(name: "Main", bundle: nil)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -24,13 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         case .denied, .notDetermined, .restricted  :
             let konumVC = storyBoard.instantiateViewController(withIdentifier: "KonumViewController") as? KonumViewController
+            konumVC?.konumServis = konumServis
             window.rootViewController = konumVC
             default :
             assertionFailure()
             }
         window.makeKeyAndVisible()
-            
-        }
         
         return true
     }
