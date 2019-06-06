@@ -12,6 +12,9 @@
 		3D47178A22A8452E0079C34F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D47178822A8452E0079C34F /* Main.storyboard */; };
 		3D47178C22A8452F0079C34F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D47178B22A8452F0079C34F /* Assets.xcassets */; };
 		3D47178F22A8452F0079C34F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D47178D22A8452F0079C34F /* LaunchScreen.storyboard */; };
+		3DDBEC7022A90D0F00C6AB9B /* TemelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDBEC6F22A90D0F00C6AB9B /* TemelView.swift */; };
+		3DDBEC7222A90D2600C6AB9B /* YemekDetaylariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDBEC7122A90D2600C6AB9B /* YemekDetaylariView.swift */; };
+		3DDBEC7422A90E3C00C6AB9B /* YemekDetaylariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDBEC7322A90E3C00C6AB9B /* YemekDetaylariViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		3D47178B22A8452F0079C34F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D47178E22A8452F0079C34F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D47179022A8452F0079C34F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3DDBEC6F22A90D0F00C6AB9B /* TemelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemelView.swift; sourceTree = "<group>"; };
+		3DDBEC7122A90D2600C6AB9B /* YemekDetaylariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YemekDetaylariView.swift; sourceTree = "<group>"; };
+		3DDBEC7322A90E3C00C6AB9B /* YemekDetaylariViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YemekDetaylariViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,7 @@
 		3D47178322A8452E0079C34F /* Restoran */ = {
 			isa = PBXGroup;
 			children = (
+				3DDBEC6C22A90CEC00C6AB9B /* Sayfalar */,
 				3D47178422A8452E0079C34F /* AppDelegate.swift */,
 				3D47178622A8452E0079C34F /* ViewController.swift */,
 				3D47178822A8452E0079C34F /* Main.storyboard */,
@@ -62,6 +69,32 @@
 				3D47179022A8452F0079C34F /* Info.plist */,
 			);
 			path = Restoran;
+			sourceTree = "<group>";
+		};
+		3DDBEC6C22A90CEC00C6AB9B /* Sayfalar */ = {
+			isa = PBXGroup;
+			children = (
+				3DDBEC6D22A90CF500C6AB9B /* Detaylar */,
+				3DDBEC6F22A90D0F00C6AB9B /* TemelView.swift */,
+			);
+			path = Sayfalar;
+			sourceTree = "<group>";
+		};
+		3DDBEC6D22A90CF500C6AB9B /* Detaylar */ = {
+			isa = PBXGroup;
+			children = (
+				3DDBEC6E22A90CFC00C6AB9B /* View */,
+				3DDBEC7322A90E3C00C6AB9B /* YemekDetaylariViewController.swift */,
+			);
+			path = Detaylar;
+			sourceTree = "<group>";
+		};
+		3DDBEC6E22A90CFC00C6AB9B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3DDBEC7122A90D2600C6AB9B /* YemekDetaylariView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,7 +168,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DDBEC7222A90D2600C6AB9B /* YemekDetaylariView.swift in Sources */,
+				3DDBEC7422A90E3C00C6AB9B /* YemekDetaylariViewController.swift in Sources */,
 				3D47178722A8452E0079C34F /* ViewController.swift in Sources */,
+				3DDBEC7022A90D0F00C6AB9B /* TemelView.swift in Sources */,
 				3D47178522A8452E0079C34F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
