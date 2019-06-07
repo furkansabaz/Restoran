@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let konumServis = KonumServis()
     let storyBoard = UIStoryboard(name: "Main", bundle: nil)
     
+    let decoder = JSONDecoder()
     
     let agServis = MoyaProvider<YelpServis.VeriSaglayici>()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -26,8 +27,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             switch sonuc {
             case .success(let gelenVeri) :
                 
-                let veri = try? JSONSerialization.jsonObject(with: gelenVeri.data, options: [])
+                
+                self.decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let veri = try? self.decoder.decode(TumVeri.self, from: gelenVeri.data)
                 print(veri)
+                
+                
             case .failure(let hata) :
                 print("Hata Meydana Geldi : \(hata)")
             }
