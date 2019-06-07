@@ -14,6 +14,7 @@
 		3D47178A22A8452E0079C34F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D47178822A8452E0079C34F /* Main.storyboard */; };
 		3D47178C22A8452F0079C34F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D47178B22A8452F0079C34F /* Assets.xcassets */; };
 		3D47178F22A8452F0079C34F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D47178D22A8452F0079C34F /* LaunchScreen.storyboard */; };
+		3D8C613B22AAC99500D11B43 /* AgServis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C613A22AAC99500D11B43 /* AgServis.swift */; };
 		3DDBEC7022A90D0F00C6AB9B /* TemelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDBEC6F22A90D0F00C6AB9B /* TemelView.swift */; };
 		3DDBEC7222A90D2600C6AB9B /* YemekDetaylariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDBEC7122A90D2600C6AB9B /* YemekDetaylariView.swift */; };
 		3DDBEC7422A90E3C00C6AB9B /* YemekDetaylariViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DDBEC7322A90E3C00C6AB9B /* YemekDetaylariViewController.swift */; };
@@ -33,6 +34,7 @@
 		3D47178B22A8452F0079C34F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D47178E22A8452F0079C34F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D47179022A8452F0079C34F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D8C613A22AAC99500D11B43 /* AgServis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgServis.swift; sourceTree = "<group>"; };
 		3DDBEC6F22A90D0F00C6AB9B /* TemelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemelView.swift; sourceTree = "<group>"; };
 		3DDBEC7122A90D2600C6AB9B /* YemekDetaylariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YemekDetaylariView.swift; sourceTree = "<group>"; };
 		3DDBEC7322A90E3C00C6AB9B /* YemekDetaylariViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YemekDetaylariViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				3D459A3222A9391600B626C1 /* KonumServis.swift */,
+				3D8C613A22AAC99500D11B43 /* AgServis.swift */,
 			);
 			path = Servisler;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				3DDBEC8C22A918F200C6AB9B /* KonumViewController.swift in Sources */,
 				3D47178522A8452E0079C34F /* AppDelegate.swift in Sources */,
 				3DDBEC8A22A9189700C6AB9B /* KonumView.swift in Sources */,
+				3D8C613B22AAC99500D11B43 /* AgServis.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

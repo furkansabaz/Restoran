@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Moya
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,9 +16,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let window = UIWindow()
     let konumServis = KonumServis()
     let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-
+    
+    
+    let agServis = MoyaProvider<YelpServis.VeriSaglayici>()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        agServis.request(.search(lat: 41.01, long: 28.97)) { (sonuc) in
+            switch sonuc {
+            case .success(let gelenVeri) :
+                
+                let veri = try? JSONSerialization.jsonObject(with: gelenVeri.data, options: [])
+                print(veri)
+            case .failure(let hata) :
+                print("Hata Meydana Geldi : \(hata)")
+            }
+        }
+        
+        
         
         switch konumServis.durum {
             
