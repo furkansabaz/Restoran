@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
 class YemekDetaylariViewController: UIViewController {
 
@@ -35,10 +37,29 @@ class YemekDetaylariViewController: UIViewController {
         
         
         yemekDetaylariView.collectionView.reloadData()
+        haritadaGoster()
+        title = restoranDetaylari?.mekanAdi
         
     }
 
     
+    
+    func haritadaGoster() {
+        
+        if let koordinat = restoranDetaylari?.koordinatlari {
+            
+            let bolge = MKCoordinateRegion(center: koordinat, latitudinalMeters: 90, longitudinalMeters: 90)
+            yemekDetaylariView.mapView.setRegion(bolge, animated: true)
+            
+            let isaret = MKPointAnnotation()
+            isaret.coordinate = koordinat
+            isaret.title = restoranDetaylari?.mekanAdi
+            yemekDetaylariView.mapView.addAnnotation(isaret)
+            
+        }
+        
+        
+    }
 
 }
 
@@ -61,7 +82,10 @@ extension YemekDetaylariViewController : UICollectionViewDelegate , UICollection
         
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        yemekDetaylariView.pageControl.currentPage = indexPath.row
+    }
     
     
 }
