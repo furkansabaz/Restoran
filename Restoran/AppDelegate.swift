@@ -8,6 +8,7 @@
 
 import UIKit
 import Moya
+import CoreLocation
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -23,21 +24,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        
+        konumServis.yeniKonum = { sonuc in
+            switch sonuc {
+            case .basarili(let konumBilgisi) :
+                print(konumBilgisi.coordinate.latitude,"-",konumBilgisi.coordinate.longitude)
+                
+                self.isYerleriniGetir(koordinat: konumBilgisi.coordinate)
+            case .hatali(let hata) :
+                //assertionFailure("Hata Meydana Geldi : \(hata)")
+                print("Hatalı")
+            }
+            
+        }
         
         
         switch konumServis.durum {
             
         case .denied, .notDetermined, .restricted  :
             let konumVC = storyBoard.instantiateViewController(withIdentifier: "KonumViewController") as? KonumViewController
-            konumVC?.konumServis = konumServis
+            konumVC?.delegeate = self
             window.rootViewController = konumVC
             default :
             
                 let navigation = storyBoard.instantiateViewController(withIdentifier: "RestoranNavigationController")
             window.rootViewController = navigation
-            isYerleriniGetir()
-            
+            //isYerleriniGetir()
+            konumServis.konumAl()
             }
         window.makeKeyAndVisible()
         
@@ -45,15 +57,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     
-    private func isYerleriniGetir() {
-        agServis.request(.search(lat: 41.01, long: 28.97)) { (sonuc) in
+    private func isYerleriniGetir(koordinat : CLLocationCoordinate2D) {
+        agServis.request(.search(lat: koordinat.latitude, long: koordinat.longitude)) { (sonuc) in
             switch sonuc {
             case .success(let gelenVeri) :
                 
                 
                 self.decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let veri = try? self.decoder.decode(TumVeri.self, from: gelenVeri.data)
-                let restoranlarListesi = veri?.businesses.compactMap(RestoranListViewModel.init)
+                let restoranlarListesi = veri?.businesses.compactMap(RestoranListViewModel.init).sorted(by: {   $0.uzaklik < $1.uzaklik   })
                 
                 if let navigation = self.window.rootViewController as? UINavigationController, let restoranlarTableViewController = navigation.topViewController as? RestoranlarTableViewController {
                     restoranlarTableViewController.restoranlarListesi = restoranlarListesi ?? []
@@ -89,3 +101,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+
+extension AppDelegate : KonumAyarlamalari {
+    func izinVerdi() {
+        konumServis.izinIste()
+    }
+}

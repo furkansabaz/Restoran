@@ -23,8 +23,13 @@ final class KonumServis : NSObject {
     
     init(manager : CLLocationManager = .init()) {
         self.manager = manager
+        self.manager.startUpdatingLocation()
+        self.manager.desiredAccuracy = kCLLocationAccuracyBest
         super.init()
         self.manager.delegate = self
+        self.manager.distanceFilter = CLLocationDistance(exactly: 250)!
+        self.manager.allowDeferredLocationUpdates(untilTraveled: CLLocationDistanceMax, timeout: CLTimeIntervalMax)
+        
     }
     
     
