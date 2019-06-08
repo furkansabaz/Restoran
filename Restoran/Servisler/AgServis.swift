@@ -17,7 +17,7 @@ enum YelpServis {
     enum  VeriSaglayici : TargetType {
         
         case search(lat : Double, long : Double)
-        
+        case details(id : String)
         var baseURL: URL {
             return URL(string: "https://api.yelp.com/v3/businesses")!
         }
@@ -25,6 +25,7 @@ enum YelpServis {
         var path: String {
             switch self {
             case .search : return "/search"
+            case  .details(let id) :  return "/\(id)"
             }
         }
         
@@ -40,6 +41,7 @@ enum YelpServis {
             switch self {
             case let .search(lat, long):
                 return .requestParameters(parameters: ["latitude" : lat, "longitude" : long, "limit" : 20], encoding: URLEncoding.queryString)
+            case let .details(id) : return .requestPlain
             }
         }
         

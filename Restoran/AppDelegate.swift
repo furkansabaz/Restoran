@@ -56,8 +56,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    
+    private func detaylariGetir() {
+        agServis.request(.details(id: "E8RJkjfdcwgtyoPMjQ_Olg")) { (sonuc) in
+            
+            switch sonuc {
+            case .success(let veri):
+                let detaylar = try? self.decoder.decode(Details.self, from: veri.data)
+                print("******************DETAYLAR : \(detaylar)***********************")
+            case .failure(let hata) :
+                print("Hata Meydana Geldi  :\(hata)")
+            }
+        }
+    }
     private func isYerleriniGetir(koordinat : CLLocationCoordinate2D) {
+        detaylariGetir()
         agServis.request(.search(lat: koordinat.latitude, long: koordinat.longitude)) { (sonuc) in
             switch sonuc {
             case .success(let gelenVeri) :
