@@ -62,3 +62,25 @@ extension CLLocationCoordinate2D : Decodable {
         self.init(latitude: lat, longitude: long)
     }
 }
+
+struct DetaylarView {
+    
+    let mekanAdi  : String
+    let telefonNumarasi : String
+    let ucret : String
+    let kapaliMi : String
+    let puan : String
+    let restoranGoruntuleri : [URL]
+    let koordinatlari : CLLocationCoordinate2D
+    
+    init(detay : Details) {
+        self.mekanAdi = detay.name
+        self.telefonNumarasi = detay.phone
+        self.ucret = detay.price
+        self.kapaliMi = detay.isClosed ? "Kapalı" : "Açık"
+        self.puan = "\(detay.rating)/5"
+        self.restoranGoruntuleri = detay.photos
+        self.koordinatlari = detay.coordinates
+    }
+    
+}

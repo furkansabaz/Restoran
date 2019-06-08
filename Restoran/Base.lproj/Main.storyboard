@@ -378,6 +378,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Ayrıntılar" largeTitleDisplayMode="never" id="pOH-on-92F"/>
                     <size key="freeformSize" width="414" height="1025"/>
+                    <connections>
+                        <outlet property="yemekDetaylariView" destination="Xoy-S6-0RY" id="zEw-B8-lKa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IJx-Bm-6f6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

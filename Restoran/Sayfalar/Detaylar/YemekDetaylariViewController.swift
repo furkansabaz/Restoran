@@ -11,11 +11,26 @@ import UIKit
 class YemekDetaylariViewController: UIViewController {
 
     @IBOutlet weak var yemekDetaylariView : YemekDetaylariView!
+    
+    var restoranDetaylari : DetaylarView? {
+        didSet {
+            gorunumAyarla()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
+    func gorunumAyarla() {
+        
+        yemekDetaylariView.lblPuan.text = restoranDetaylari?.puan
+        yemekDetaylariView.lblSaat.text = restoranDetaylari?.kapaliMi
+        yemekDetaylariView.lblFiyat.text = restoranDetaylari?.ucret
+        yemekDetaylariView.lblKonum.text = restoranDetaylari?.telefonNumarasi
+        
+    }
 
     
 

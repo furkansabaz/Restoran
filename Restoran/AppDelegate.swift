@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let storyBoard = UIStoryboard(name: "Main", bundle: nil)
     
     let decoder = JSONDecoder()
+    var navigationController : UINavigationController?
     
     let agServis = MoyaProvider<YelpServis.VeriSaglayici>()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -48,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
                 let navigation = storyBoard.instantiateViewController(withIdentifier: "RestoranNavigationController") as? UINavigationController
             window.rootViewController = navigation
+                navigationController = navigation
             //isYerleriniGetir()
             konumServis.konumAl()
             (navigation?.topViewController as? RestoranlarTableViewController)?.delegate = self
@@ -62,8 +64,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             switch sonuc {
             case .success(let veri):
-                let detaylar = try? self.decoder.decode(Details.self, from: veri.data)
-                print("******************DETAYLAR : \(detaylar)***********************")
+                if let detaylar = try? self.decoder.decode(Details.self, from: veri.data) {
+                    let restoranDetaylari = DetaylarView(detay: detaylar)
+                    
+                    let yemekDetaylariVC = (self.navigationController?.topViewController as? YemekDetaylariViewController)
+                    yemekDetaylariVC?.restoranDetaylari = restoranDetaylari
+                }
+                
             case .failure(let hata) :
                 print("Hata Meydana Geldi  :\(hata)")
             }
