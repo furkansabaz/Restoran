@@ -46,18 +46,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window.rootViewController = konumVC
             default :
             
-                let navigation = storyBoard.instantiateViewController(withIdentifier: "RestoranNavigationController")
+                let navigation = storyBoard.instantiateViewController(withIdentifier: "RestoranNavigationController") as? UINavigationController
             window.rootViewController = navigation
             //isYerleriniGetir()
             konumServis.konumAl()
+            (navigation?.topViewController as? RestoranlarTableViewController)?.delegate = self
             }
         window.makeKeyAndVisible()
         
         return true
     }
 
-    private func detaylariGetir() {
-        agServis.request(.details(id: "E8RJkjfdcwgtyoPMjQ_Olg")) { (sonuc) in
+    private func detaylariGetir(mekanId : String) {
+        agServis.request(.details(id: mekanId)) { (sonuc) in
             
             switch sonuc {
             case .success(let veri):
@@ -69,7 +70,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     private func isYerleriniGetir(koordinat : CLLocationCoordinate2D) {
-        detaylariGetir()
         agServis.request(.search(lat: koordinat.latitude, long: koordinat.longitude)) { (sonuc) in
             switch sonuc {
             case .success(let gelenVeri) :
@@ -115,8 +115,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
-extension AppDelegate : KonumAyarlamalari {
+extension AppDelegate : KonumAyarlamalari , RestoranlarListesiAction{
     func izinVerdi() {
         konumServis.izinIste()
+    }
+    func restoranSec(restoran: RestoranListViewModel) {
+        detaylariGetir(mekanId: restoran.id)
     }
 }

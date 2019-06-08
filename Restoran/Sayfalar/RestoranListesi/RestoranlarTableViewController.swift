@@ -8,8 +8,16 @@
 
 import UIKit
 
+protocol RestoranlarListesiAction {
+    func restoranSec(restoran : RestoranListViewModel)
+}
+
+
 class RestoranlarTableViewController: UITableViewController {
 
+    var delegate : RestoranlarListesiAction?
+    
+    
     var restoranlarListesi = [RestoranListViewModel]() {
         didSet {
             tableView.reloadData()
@@ -47,6 +55,13 @@ class RestoranlarTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 400
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let secilenRestoran = restoranlarListesi[indexPath.row]
+        delegate?.restoranSec(restoran: secilenRestoran)
+        
     }
     
 }
