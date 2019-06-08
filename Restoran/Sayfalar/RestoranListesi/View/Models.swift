@@ -32,7 +32,7 @@ struct RestoranListViewModel {
         self.isYeriAdi = yer.name
         self.id = yer.id
         self.gorunUrl = yer.imageUrl
-        self.uzaklik = "\(yer.distance / 1609.344)"
+        self.uzaklik = "\(String(format: "%.2f", (yer.distance/1000)))"
     }
     
 }

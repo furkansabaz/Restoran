@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class RestoranlarTableViewCell: UITableViewCell {
 
@@ -26,6 +27,16 @@ class RestoranlarTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    
+    func gorunumAyarla(restoran : RestoranListViewModel) {
+        
+        imgRestoran.af_setImage(withURL: restoran.gorunUrl)
+        lblRestoranAdi.text = restoran.isYeriAdi
+        lblKonum.text = restoran.uzaklik
+        
+        
     }
 
 }

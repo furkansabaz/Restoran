@@ -23,20 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        agServis.request(.search(lat: 41.01, long: 28.97)) { (sonuc) in
-            switch sonuc {
-            case .success(let gelenVeri) :
-                
-                
-                self.decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let veri = try? self.decoder.decode(TumVeri.self, from: gelenVeri.data)
-                print(veri)
-                
-                
-            case .failure(let hata) :
-                print("Hata Meydana Geldi : \(hata)")
-            }
-        }
         
         
         
@@ -47,13 +33,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             konumVC?.konumServis = konumServis
             window.rootViewController = konumVC
             default :
-            assertionFailure()
+            
+                let navigation = storyBoard.instantiateViewController(withIdentifier: "RestoranNavigationController")
+            window.rootViewController = navigation
+            isYerleriniGetir()
+            
             }
         window.makeKeyAndVisible()
         
         return true
     }
 
+    
+    private func isYerleriniGetir() {
+        agServis.request(.search(lat: 41.01, long: 28.97)) { (sonuc) in
+            switch sonuc {
+            case .success(let gelenVeri) :
+                
+                
+                self.decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let veri = try? self.decoder.decode(TumVeri.self, from: gelenVeri.data)
+                let restoranlarListesi = veri?.businesses.compactMap(RestoranListViewModel.init)
+                
+                if let navigation = self.window.rootViewController as? UINavigationController, let restoranlarTableViewController = navigation.topViewController as? RestoranlarTableViewController {
+                    restoranlarTableViewController.restoranlarListesi = restoranlarListesi ?? []
+                }
+            case .failure(let hata) :
+                print("Hata Meydana Geldi : \(hata)")
+            }
+        }
+        
+    }
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
