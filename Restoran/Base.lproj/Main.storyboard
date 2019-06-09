@@ -188,7 +188,6 @@
                                     <outlet property="imgRestoran" destination="MzZ-Kv-eAH" id="8kT-G5-UGb"/>
                                     <outlet property="lblKonum" destination="7Ug-JH-5U6" id="FPa-Qa-yKJ"/>
                                     <outlet property="lblRestoranAdi" destination="4fb-db-3mk" id="Jh8-CZ-OaI"/>
-                                    <segue destination="AUM-jL-Cl7" kind="show" id="mrM-4M-BOO"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -206,13 +205,13 @@
         <!--Ayrıntılar-->
         <scene sceneID="VAg-7A-etl">
             <objects>
-                <viewController id="AUM-jL-Cl7" customClass="YemekDetaylariViewController" customModule="Restoran" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetaylarViewController" id="AUM-jL-Cl7" customClass="YemekDetaylariViewController" customModule="Restoran" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xoy-S6-0RY" customClass="YemekDetaylariView" customModule="Restoran" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1025"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fob-br-Ur3">
-                                <rect key="frame" x="0.0" y="88" width="414" height="903"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="947"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="tYU-en-F3c">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="903"/>
@@ -348,7 +347,7 @@
                                 </constraints>
                             </scrollView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="528-M1-Fee">
-                                <rect key="frame" x="187.5" y="301" width="39" height="37"/>
+                                <rect key="frame" x="187.5" y="257" width="39" height="37"/>
                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>

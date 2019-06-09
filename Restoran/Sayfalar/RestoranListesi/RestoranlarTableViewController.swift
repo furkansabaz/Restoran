@@ -9,7 +9,7 @@
 import UIKit
 
 protocol RestoranlarListesiAction {
-    func restoranSec(restoran : RestoranListViewModel)
+    func restoranSec(viewController : UIViewController,restoran : RestoranListViewModel)
 }
 
 
@@ -58,9 +58,11 @@ class RestoranlarTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let detaylarVC = storyboard?.instantiateViewController(withIdentifier: "DetaylarViewController") else {return}
         
+        navigationController?.pushViewController(detaylarVC, animated: true)
         let secilenRestoran = restoranlarListesi[indexPath.row]
-        delegate?.restoranSec(restoran: secilenRestoran)
+        delegate?.restoranSec(viewController: detaylarVC, restoran: secilenRestoran)
         
     }
     

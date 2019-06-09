@@ -59,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    private func detaylariGetir(mekanId : String) {
+    private func detaylariGetir(viewController : UIViewController,mekanId : String) {
         agServis.request(.details(id: mekanId)) { (sonuc) in
             
             switch sonuc {
@@ -67,7 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if let detaylar = try? self.decoder.decode(Details.self, from: veri.data) {
                     let restoranDetaylari = DetaylarView(detay: detaylar)
                     
-                    let yemekDetaylariVC = (self.navigationController?.topViewController as? YemekDetaylariViewController)
+                    let yemekDetaylariVC = (viewController as? YemekDetaylariViewController)
                     yemekDetaylariVC?.restoranDetaylari = restoranDetaylari
                 }
                 
@@ -88,6 +88,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 if let navigation = self.window.rootViewController as? UINavigationController, let restoranlarTableViewController = navigation.topViewController as? RestoranlarTableViewController {
                     restoranlarTableViewController.restoranlarListesi = restoranlarListesi ?? []
+                } else if let navigation1 = self.storyBoard.instantiateViewController(withIdentifier: "RestoranNavigationController") as? UINavigationController {
+                    
+                    self.navigationController = navigation1
+                    
+                    self.window.rootViewController?.present(navigation1, animated: true) {
+                        (navigation1.topViewController as? RestoranlarTableViewController)?.delegate = self
+                        print("Restoran Listesi Eleman Sayısı : \(restoranlarListesi?.count)")
+                        (navigation1.topViewController as? RestoranlarTableViewController)?.restoranlarListesi = restoranlarListesi ?? []
+                        
+                    }
                 }
             case .failure(let hata) :
                 print("Hata Meydana Geldi : \(hata)")
@@ -126,7 +136,7 @@ extension AppDelegate : KonumAyarlamalari , RestoranlarListesiAction{
     func izinVerdi() {
         konumServis.izinIste()
     }
-    func restoranSec(restoran: RestoranListViewModel) {
-        detaylariGetir(mekanId: restoran.id)
+    func restoranSec(viewController: UIViewController, restoran: RestoranListViewModel) {
+        detaylariGetir(viewController: viewController, mekanId: restoran.id)
     }
 }

@@ -16,6 +16,7 @@ class YemekDetaylariViewController: UIViewController {
     
     var restoranDetaylari : DetaylarView? {
         didSet {
+            print("Restoran Detaylarına Veri Atandı")
             gorunumAyarla()
         }
     }
