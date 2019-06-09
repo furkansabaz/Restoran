@@ -18,6 +18,8 @@ enum YelpServis {
         
         case search(lat : Double, long : Double)
         case details(id : String)
+        case searchFilter(lat : Double, long : Double, filter : String)
+        
         var baseURL: URL {
             return URL(string: "https://api.yelp.com/v3/businesses")!
         }
@@ -26,6 +28,8 @@ enum YelpServis {
             switch self {
             case .search : return "/search"
             case  .details(let id) :  return "/\(id)"
+                
+            case .searchFilter : return "/search"
             }
         }
         
@@ -40,8 +44,13 @@ enum YelpServis {
         var task: Task {
             switch self {
             case let .search(lat, long):
-                return .requestParameters(parameters: ["latitude" : lat, "longitude" : long, "limit" : 20], encoding: URLEncoding.queryString)
+                return .requestParameters(parameters: ["latitude" : lat, "longitude" : long, "limit" : 10, "radius" : 40000], encoding: URLEncoding.queryString)
             case let .details(id) : return .requestPlain
+             
+                
+            case let .searchFilter(lat, long, filter):
+                return .requestParameters(parameters: ["latitude" : lat, "longitude" : long, "limit" : 10, "term" : filter, "radius" : 40000], encoding: URLEncoding.queryString)
+            
             }
         }
         

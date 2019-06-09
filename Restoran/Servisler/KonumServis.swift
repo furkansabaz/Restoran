@@ -32,7 +32,7 @@ final class KonumServis : NSObject {
         
     }
     
-    
+    var gecerliKonum : CLLocationCoordinate2D?
     var yeniKonum : ((Sonuc<CLLocation>) -> Void)?
     var konumDegisikligi : ((Bool) -> Void)?
     
@@ -62,6 +62,7 @@ extension KonumServis : CLLocationManagerDelegate {
         
         if let konum = locations.sorted(by: { $0.timestamp > $1.timestamp }).first {
             yeniKonum?(.basarili(konum))
+            gecerliKonum = konum.coordinate
         }
     }
     

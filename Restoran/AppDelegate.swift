@@ -22,6 +22,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var navigationController : UINavigationController?
     
     let agServis = MoyaProvider<YelpServis.VeriSaglayici>()
+    
+    
+    var aramaFiltresi : String? {
+        didSet {
+            if self.aramaFiltresi!.isEmpty {
+                self.isYerleriniGetir(koordinat: konumServis.gecerliKonum!)
+            } else {
+                self.isYerleriniGetir(koordinat: konumServis.gecerliKonum!, aramaFiltre: self.aramaFiltresi!)
+            }
+        }
+    }
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -78,6 +91,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     private func isYerleriniGetir(koordinat : CLLocationCoordinate2D) {
         agServis.request(.search(lat: koordinat.latitude, long: koordinat.longitude)) { (sonuc) in
+            switch sonuc {
+            case .success(let gelenVeri) :
+                
+                
+                self.decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let veri = try? self.decoder.decode(TumVeri.self, from: gelenVeri.data)
+                let restoranlarListesi = veri?.businesses.compactMap(RestoranListViewModel.init).sorted(by: {   $0.uzaklik < $1.uzaklik   })
+                
+                if let navigation = self.window.rootViewController as? UINavigationController, let restoranlarTableViewController = navigation.topViewController as? RestoranlarTableViewController {
+                    restoranlarTableViewController.restoranlarListesi = restoranlarListesi ?? []
+                } else if let navigation1 = self.storyBoard.instantiateViewController(withIdentifier: "RestoranNavigationController") as? UINavigationController {
+                    
+                    self.navigationController = navigation1
+                    
+                    self.window.rootViewController?.present(navigation1, animated: true) {
+                        (navigation1.topViewController as? RestoranlarTableViewController)?.delegate = self
+                        print("Restoran Listesi Eleman Sayısı : \(restoranlarListesi?.count)")
+                        (navigation1.topViewController as? RestoranlarTableViewController)?.restoranlarListesi = restoranlarListesi ?? []
+                        
+                    }
+                }
+            case .failure(let hata) :
+                print("Hata Meydana Geldi : \(hata)")
+            }
+        }
+        
+    }
+    
+    
+    private func isYerleriniGetir(koordinat : CLLocationCoordinate2D, aramaFiltre : String) {
+        agServis.request(.searchFilter(lat: koordinat.latitude, long: koordinat.longitude, filter : aramaFiltre)) { (sonuc) in
             switch sonuc {
             case .success(let gelenVeri) :
                 

@@ -26,7 +26,8 @@ class RestoranlarTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        aramaAlaniEkle()
         
     }
 
@@ -64,6 +65,30 @@ class RestoranlarTableViewController: UITableViewController {
         let secilenRestoran = restoranlarListesi[indexPath.row]
         delegate?.restoranSec(viewController: detaylarVC, restoran: secilenRestoran)
         
+    }
+    
+    
+    func aramaAlaniEkle() {
+        navigationItem.largeTitleDisplayMode = .never
+        let searchController = UISearchController(searchResultsController: nil)
+        navigationItem.searchController = searchController
+        
+        navigationItem.hidesSearchBarWhenScrolling = false
+        
+        searchController.searchBar.delegate = self
+    }
+    
+}
+
+extension RestoranlarTableViewController : UISearchBarDelegate {
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        
+        if let aramaIfade = searchBar.text {
+            
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.aramaFiltresi = aramaIfade
+        }
     }
     
 }
