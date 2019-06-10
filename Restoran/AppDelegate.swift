@@ -38,9 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        yorumlariGetir(mekanId: "E8RJkjfdcwgtyoPMjQ_Olg")
-        
-        
         konumServis.yeniKonum = { sonuc in
             switch sonuc {
             case .basarili(let konumBilgisi) :
@@ -85,6 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                     let yemekDetaylariVC = (viewController as? YemekDetaylariViewController)
                     yemekDetaylariVC?.restoranDetaylari = restoranDetaylari
+                    yemekDetaylariVC?.delegate = self
                 }
                 
             case .failure(let hata) :
@@ -152,7 +150,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
     }
-    func yorumlariGetir(mekanId: String) {
+    func yorumlariGetir(viewController : UIViewController, mekanId: String) {
         
         print("Yorumları Getirdin")
         self.decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -183,11 +181,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 
-extension AppDelegate : KonumAyarlamalari , RestoranlarListesiAction{
+extension AppDelegate : KonumAyarlamalari , RestoranlarListesiAction, YorumlariGetirProtocol{
     func izinVerdi() {
         konumServis.izinIste()
     }
     func restoranSec(viewController: UIViewController, restoran: RestoranListViewModel) {
         detaylariGetir(viewController: viewController, mekanId: restoran.id)
+    }
+    
+    func getir(viewController: UIViewController, mekanId: String) {
+        self.yorumlariGetir(viewController: viewController, mekanId: mekanId)
     }
 }

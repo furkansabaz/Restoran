@@ -13,6 +13,8 @@ import CoreLocation
 class YemekDetaylariViewController: UIViewController {
 
     @IBOutlet weak var yemekDetaylariView : YemekDetaylariView!
+    var delegate : YorumlariGetirProtocol?
+    
     
     var restoranDetaylari : DetaylarView? {
         didSet {
@@ -20,6 +22,7 @@ class YemekDetaylariViewController: UIViewController {
             gorunumAyarla()
         }
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +64,19 @@ class YemekDetaylariViewController: UIViewController {
         
         
     }
+    
+    
+    @IBAction func btnYorumlariGosterClicked(_ sender: UIButton) {
+        guard let yorumlarVC = storyboard?.instantiateViewController(withIdentifier: "YorumlarViewController") else {return}
+        navigationController?.pushViewController(yorumlarVC, animated: true)
+        delegate?.getir(viewController: yorumlarVC, mekanId: restoranDetaylari!.id)
+    }
+    
 
+}
+
+protocol YorumlariGetirProtocol {
+    func getir(viewController : UIViewController, mekanId : String)
 }
 
 

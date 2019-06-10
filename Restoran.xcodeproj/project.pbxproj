@@ -14,6 +14,8 @@
 		3D47178A22A8452E0079C34F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D47178822A8452E0079C34F /* Main.storyboard */; };
 		3D47178C22A8452F0079C34F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D47178B22A8452F0079C34F /* Assets.xcassets */; };
 		3D47178F22A8452F0079C34F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D47178D22A8452F0079C34F /* LaunchScreen.storyboard */; };
+		3D735D3D22AE57F600DD3AE0 /* YorumlarTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D735D3C22AE57F500DD3AE0 /* YorumlarTableViewController.swift */; };
+		3D735D3F22AE580900DD3AE0 /* YorumlarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D735D3E22AE580900DD3AE0 /* YorumlarTableViewCell.swift */; };
 		3D8C613B22AAC99500D11B43 /* AgServis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C613A22AAC99500D11B43 /* AgServis.swift */; };
 		3D8C613F22AADD2300D11B43 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C613E22AADD2300D11B43 /* Models.swift */; };
 		3D8C614322AC205B00D11B43 /* YemekDetaylariCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C614222AC205B00D11B43 /* YemekDetaylariCollectionViewCell.swift */; };
@@ -36,6 +38,8 @@
 		3D47178B22A8452F0079C34F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D47178E22A8452F0079C34F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3D47179022A8452F0079C34F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D735D3C22AE57F500DD3AE0 /* YorumlarTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YorumlarTableViewController.swift; sourceTree = "<group>"; };
+		3D735D3E22AE580900DD3AE0 /* YorumlarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YorumlarTableViewCell.swift; sourceTree = "<group>"; };
 		3D8C613A22AAC99500D11B43 /* AgServis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgServis.swift; sourceTree = "<group>"; };
 		3D8C613E22AADD2300D11B43 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		3D8C614222AC205B00D11B43 /* YemekDetaylariCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YemekDetaylariCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -104,9 +108,27 @@
 			path = Restoran;
 			sourceTree = "<group>";
 		};
+		3D735D3A22AE57D200DD3AE0 /* Yorumlar */ = {
+			isa = PBXGroup;
+			children = (
+				3D735D3B22AE57E000DD3AE0 /* View */,
+				3D735D3C22AE57F500DD3AE0 /* YorumlarTableViewController.swift */,
+			);
+			path = Yorumlar;
+			sourceTree = "<group>";
+		};
+		3D735D3B22AE57E000DD3AE0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3D735D3E22AE580900DD3AE0 /* YorumlarTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3DDBEC6C22A90CEC00C6AB9B /* Sayfalar */ = {
 			isa = PBXGroup;
 			children = (
+				3D735D3A22AE57D200DD3AE0 /* Yorumlar */,
 				3DDBEC8722A9187700C6AB9B /* Konum */,
 				3DDBEC8122A917E200C6AB9B /* RestoranListesi */,
 				3DDBEC6D22A90CF500C6AB9B /* Detaylar */,
@@ -307,11 +329,13 @@
 				3DDBEC7422A90E3C00C6AB9B /* YemekDetaylariViewController.swift in Sources */,
 				3D47178722A8452E0079C34F /* ViewController.swift in Sources */,
 				3D8C613F22AADD2300D11B43 /* Models.swift in Sources */,
+				3D735D3D22AE57F600DD3AE0 /* YorumlarTableViewController.swift in Sources */,
 				3DDBEC8422A9181100C6AB9B /* RestoranlarTableViewController.swift in Sources */,
 				3D459A3322A9391600B626C1 /* KonumServis.swift in Sources */,
 				3D8C614322AC205B00D11B43 /* YemekDetaylariCollectionViewCell.swift in Sources */,
 				3DDBEC7022A90D0F00C6AB9B /* TemelView.swift in Sources */,
 				3DDBEC8622A9183900C6AB9B /* RestoranlarTableViewCell.swift in Sources */,
+				3D735D3F22AE580900DD3AE0 /* YorumlarTableViewCell.swift in Sources */,
 				3DDBEC8C22A918F200C6AB9B /* KonumViewController.swift in Sources */,
 				3D47178522A8452E0079C34F /* AppDelegate.swift in Sources */,
 				3DDBEC8A22A9189700C6AB9B /* KonumView.swift in Sources */,
