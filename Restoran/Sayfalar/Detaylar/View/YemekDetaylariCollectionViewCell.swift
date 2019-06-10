@@ -26,7 +26,7 @@ class YemekDetaylariCollectionViewCell: UICollectionViewCell {
     func ayarla() {
         contentView.addSubview(imgMekan)
         imgMekan.translatesAutoresizingMaskIntoConstraints = false
-        imgMekan.contentMode = .scaleToFill
+        imgMekan.contentMode = .scaleAspectFill
         
         
         NSLayoutConstraint.activate([

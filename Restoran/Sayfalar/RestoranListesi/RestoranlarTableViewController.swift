@@ -69,7 +69,7 @@ class RestoranlarTableViewController: UITableViewController {
     
     
     func aramaAlaniEkle() {
-        navigationItem.largeTitleDisplayMode = .never
+        //navigationItem.largeTitleDisplayMode = .never
         let searchController = UISearchController(searchResultsController: nil)
         navigationItem.searchController = searchController
         

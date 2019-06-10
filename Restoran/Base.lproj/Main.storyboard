@@ -110,10 +110,10 @@
             </objects>
             <point key="canvasLocation" x="50.724637681159422" y="20.758928571428569"/>
         </scene>
-        <!--Restoranlar-->
+        <!--Mekanların Listesi-->
         <scene sceneID="qme-yh-LVg">
             <objects>
-                <tableViewController id="uMB-RI-aYK" customClass="RestoranlarTableViewController" customModule="Restoran" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Mekanların Listesi" id="uMB-RI-aYK" customClass="RestoranlarTableViewController" customModule="Restoran" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="h6z-5r-RpQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -132,20 +132,22 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="5aX-Ie-6mK">
                                                     <rect key="frame" x="0.0" y="0.0" width="374" height="378"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="konum" translatesAutoresizingMaskIntoConstraints="NO" id="MzZ-Kv-eAH">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="konum" translatesAutoresizingMaskIntoConstraints="NO" id="MzZ-Kv-eAH">
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="338"/>
+                                                            <color key="backgroundColor" red="0.84521732230000002" green="0.84521732230000002" blue="0.84521732230000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="ExR-RC-wKx">
                                                             <rect key="frame" x="0.0" y="354" width="374" height="24"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fb-db-3mk">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="288" height="24"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="284.5" height="24"/>
+                                                                    <color key="backgroundColor" red="0.84521732230000002" green="0.84521732230000002" blue="0.84521732230000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="19"/>
+                                                                    <color key="textColor" red="0.95062658629999996" green="0.33185220970000001" blue="0.19785843689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="vXP-TX-G7Q">
-                                                                    <rect key="frame" x="304" y="0.0" width="70" height="24"/>
+                                                                    <rect key="frame" x="300.5" y="0.0" width="73.5" height="24"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="konum" translatesAutoresizingMaskIntoConstraints="NO" id="606-9x-vGl">
                                                                             <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
@@ -155,19 +157,22 @@
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ug-JH-5U6">
-                                                                            <rect key="frame" x="28" y="0.0" width="42" height="24"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                            <nil key="textColor"/>
+                                                                            <rect key="frame" x="28" y="0.0" width="45.5" height="24"/>
+                                                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                                                                            <color key="textColor" red="0.14925738120000001" green="0.63821671489999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                     </subviews>
+                                                                    <color key="backgroundColor" red="0.84521732230000002" green="0.84521732230000002" blue="0.84521732230000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 </stackView>
                                                             </subviews>
+                                                            <color key="backgroundColor" red="0.84521732230000002" green="0.84521732230000002" blue="0.84521732230000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </stackView>
                                                     </subviews>
+                                                    <color key="backgroundColor" red="0.84521732230000002" green="0.84521732230000002" blue="0.84521732230000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </stackView>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="backgroundColor" red="0.84521732230000002" green="0.84521732230000002" blue="0.84521732230000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <constraints>
                                                 <constraint firstItem="5aX-Ie-6mK" firstAttribute="leading" secondItem="C84-Bn-2Bm" secondAttribute="leading" id="78F-6A-CUh"/>
                                                 <constraint firstAttribute="trailing" secondItem="5aX-Ie-6mK" secondAttribute="trailing" id="GDH-4b-inb"/>
@@ -176,6 +181,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.84521732230000002" green="0.84521732230000002" blue="0.84521732230000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstAttribute="trailingMargin" secondItem="C84-Bn-2Bm" secondAttribute="trailing" id="Dab-c4-Mw2"/>
                                         <constraint firstItem="C84-Bn-2Bm" firstAttribute="bottom" secondItem="Qzk-cZ-BkO" secondAttribute="bottomMargin" id="Dh7-5U-jhq"/>
@@ -196,7 +202,7 @@
                             <outlet property="delegate" destination="uMB-RI-aYK" id="AJr-c7-1lf"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Restoranlar" id="hBm-G9-K98"/>
+                    <navigationItem key="navigationItem" title="Mekanların Listesi" id="hBm-G9-K98"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eAr-t4-wS5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -396,10 +402,10 @@
             </objects>
             <point key="canvasLocation" x="2806" y="21"/>
         </scene>
-        <!--Yorumlar Table View Controller-->
+        <!--Mekanın Yorumları-->
         <scene sceneID="pUa-Sr-e1H">
             <objects>
-                <tableViewController storyboardIdentifier="YorumlarViewController" id="yue-Dm-soi" customClass="YorumlarTableViewController" customModule="Restoran" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="YorumlarViewController" title="Mekanın Yorumları" id="yue-Dm-soi" customClass="YorumlarTableViewController" customModule="Restoran" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="vpU-5H-F0S">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -420,20 +426,20 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adı Soyadı " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ncy-Qk-nDL">
-                                            <rect key="frame" x="190" y="21" width="194" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="190" y="21" width="194" height="25"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yorum" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5p-Q5-bPa">
-                                            <rect key="frame" x="30" y="181" width="354" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yorum" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j5p-Q5-bPa">
+                                            <rect key="frame" x="30" y="181" width="354" height="22"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Puanı : 4.5/5" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62W-u0-6HH">
-                                            <rect key="frame" x="190" y="80" width="194" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="190" y="84" width="194" height="22"/>
+                                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="16"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -480,6 +486,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="GAk-Ob-wkG">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.95062658629999996" green="0.33185220970000001" blue="0.19785843689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
                             <color key="textColor" red="0.95062658629999996" green="0.33185220970000001" blue="0.19785843689999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
