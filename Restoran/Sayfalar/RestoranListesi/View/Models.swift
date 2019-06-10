@@ -46,6 +46,7 @@ struct Details : Decodable  {
     let isClosed : Bool
     let photos : [URL]
     let coordinates : CLLocationCoordinate2D
+    let id : String
 }
 
 
@@ -72,7 +73,7 @@ struct DetaylarView {
     let puan : String
     let restoranGoruntuleri : [URL]
     let koordinatlari : CLLocationCoordinate2D
-    
+    let id : String
     init(detay : Details) {
         self.mekanAdi = detay.name
         self.telefonNumarasi = detay.phone
@@ -81,6 +82,60 @@ struct DetaylarView {
         self.puan = "\(detay.rating)/5"
         self.restoranGoruntuleri = detay.photos
         self.koordinatlari = detay.coordinates
+        self.id = detay.id
     }
     
 }
+
+
+
+struct User : Decodable {
+    
+    let imageUrl : URL
+    let name : String
+}
+
+struct Review : Decodable {
+    let rating : Double
+    let text : String
+    let user : User
+}
+
+struct Response : Decodable {
+    let reviews : [Review]
+}
+
+
+struct Kullanici : Decodable {
+    
+    let goruntuUrl : URL
+    let adi : String
+    enum CodingKeys : String, CodingKey {
+        case goruntuUrl = "imageUrl"
+        case adi = "name"
+    }
+}
+
+struct Yorum : Decodable {
+    
+    let yorumPuani : Double
+    let yorumText : String
+    let kullanici : Kullanici
+    enum CodingKeys : String , CodingKey {
+        case yorumPuani = "rating"
+        case yorumText = "text"
+        case kullanici = "user"
+    }
+    
+}
+
+struct Cevap : Decodable {
+    let yorumlar : [Yorum]
+    enum CodingKeys : String,CodingKey {
+        case yorumlar = "reviews"
+    }
+}
+
+
+
+
