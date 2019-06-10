@@ -10,6 +10,11 @@ import UIKit
 
 class YorumlarTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var lblMesaji: UILabel!
+    @IBOutlet weak var lblPuani: UILabel!
+    @IBOutlet weak var lblAdi: UILabel!
+    @IBOutlet weak var imgKullanici: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

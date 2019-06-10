@@ -163,6 +163,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 if let yorumlar = try? self.decoder.decode(Cevap.self, from: veri.data) {
                     print("\n\n\n*****Yorumlar : \n \(yorumlar)*********\n\n")
+                    let yorumlarVC = (viewController as? YorumlarTableViewController)
+                    yorumlarVC?.yorumlar = yorumlar.yorumlar
                 } else {
                     print("Veri Geldi Fakat Yorumları Decode Edemedim.")
                 }
